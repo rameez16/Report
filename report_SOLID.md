@@ -1,19 +1,21 @@
 # Report on SOLID design principles
 
 
-#### date  : 11-8-2021
-#### prepared by  : MUHAMMED RAMEES
+#### Date  : 11-8-2021
+#### Prepared by  : MUHAMMED RAMEES
   
 ## 1. Introduction
+<hr>
 
-A well-written code should be stable,reusable,extendable,logical,easier to read and test. How to device a good software design so that the code posses above mentioned qualities?.SOLID design principle effectively answer this question by coming up with five good design methods that make the code more maintainable ,flexible,testable,extendable and re-usable.Following these principle will save both time and effort in maintaining and managing code. Best benefit of SOLID based design is that we can modify and extend  the codebase without impacting and breaking other part of the code. So let us look at each of the 5 principles in detail.Basic understanding of Object Oriented Design concept is necessary to follow this report.   
+A well-written code should be stable,reusable,extendable,logical,easier to read and test. How to device a good software design so that the code posses above mentioned qualities?. SOLID design principle effectively answer this question by coming up with five good design methods that make the code more maintainable ,flexible,testable,extendable and re-usable.Following these principle will save both time and effort in maintaining and managing code. Best benefit of SOLID based design is that we can modify and extend  the codebase without impacting and breaking other part of the code. So let us look at each of the 5 principles in detail.Basic understanding of Object Oriented Design concept is necessary to follow this report.   
 
 
 
 
-## 2. S.O.L.I.D :
+## 2. S.O.L.I.D 
+<hr>
 
-SOLID design principles were introduced by Robert C. Martin in his paper “Design Principles and Design Patterns” published in 2000 . SOLID architecture gained popularity  after its introduction and developers began to follow these principles to design their programs.Now it has become coding standard in programing.SOLID acronym means the following.
+SOLID design principles were introduced by Robert C. Martin in his paper “Design Principles and Design Patterns” published in 2000 . SOLID architecture gained popularity  after its introduction and developers began to follow these principles to design their programs.Now it has become coding standard in programing. SOLID acronym means the following.
 
 > ### 1.  S: Single Responsibility Principle
 > ### 2. O: Open-Closed Principle
@@ -24,7 +26,7 @@ SOLID design principles were introduced by Robert C. Martin in his paper “Desi
 <HR>
 
 
-## 2.1.single responsibility principle (SRP)
+## 2.1. single responsibility principle (SRP)
 
  > ### Each class should have one responsibility, one single purpose / A class should have one, and only one, reason to change.
 
@@ -78,27 +80,27 @@ class UserSettings {
 }
 ```
 
-Examine the above code.The class UserSetting has been disintegrated into two classes.      
+Examine the above code. The class UserSetting has been disintegrated into two classes.      
 
 1. UserAuth-responsible for verifyCredentials
 1. UserSetting -responsible for change settings.
   
-Thus, it is re-designed to follow SRP principle. 
+   
 
-Benefits 
+Benefits of implementing SRP are
 * Easier to understand
 * Easier to maintain
-* Eore re-usable
+* More re-usable
  
 
-## 2.2Open-close principle(OCP)
+## 2.2 Open-close principle(OCP)
 
 
 > ###  The class/functions is open for extension but closed for modification
-What does this statement actually imply to?. according to this principle we are allowed to extend a class for enhanced functionality,but we are never allowed to modify it.Any kind of modification on the existing class is prohibited.we cant touch existing code.What to do if we want to update the class for better functionality or we want to add a new requirement by strictly following Open-Close Principle?. It should be achieved by adding new classes , methods and attributes without modifying existing class.
+What does this statement actually imply to?. According to this principle we are allowed to extend a class for enhanced functionality,but we are never allowed to modify it. Any kind of modification on the existing class is prohibited.we cant touch existing code. What to do if we want to update the class for better functionality or we want to add a new requirement by strictly following Open-Close Principle?. It should be achieved by adding new classes , methods and attributes without modifying existing class.
 
 
-Lets understand this better by an example.Consider the following code.Here the developer has created a class that calculate interest for All savings account based on type of account,they are the following.
+Lets understand this better by an example. Consider the following code. Here the developer has created a class that calculate interest for All savings account based on type of account,they are the following.
 
 1. regular 
 2. salary 
@@ -126,7 +128,7 @@ Lets understand this better by an example.Consider the following code.Here the d
     }  
 }  
 ```
-Now bank has revised its requirement and want to add one more account type named Student.One way to do this is to modify the current class and add one more if-else statement for student type. But this is a direct violation of OCP principle. We will be modifying the class here, which is not allowed. So how to re-design the code so that it obey OCP principle. Have a look at the classes given below.
+Now bank has revised its requirement and want to add one more account type named Student. One way to do this is to modify the current class and add one more if-else statement for student type. But this is a direct violation of OCP principle. We will be modifying the class here, which is not allowed. So how to re-design the code so that it obey OCP principle. Have a look at the classes given below.
 
 ```JAVA Interface ISavingAccount  
 {   
@@ -337,7 +339,7 @@ interface IScanner{
     void Scan();
 }  
 ```
-Here each interface is separated.this make the reuse more flexible and client  do not have to worry about implementing irrelevant logic in the design.so its always better to create small interfaces with single functionality rather than creating big interface with lots of methods.doing this way  make the code more easier to maintain and  provides improved flexibility.
+Here each interface is separated. This make the reuse more flexible and client  do not have to worry about implementing irrelevant logic in the design. So its always better to create small interfaces with single functionality rather than creating big interface with lots of methods. Doing this way  make the code more easier to maintain and  provides improved flexibility.
 
 
 ## 2.5. Dependency Inversion Principle (DIP)
@@ -352,7 +354,7 @@ To understand above statements, let's  understand what is high level and low lev
 * High level module-A high-level module is a module that always depends on other modules
 * Low level module- a module that does not depends on other modules
 
-according this principle High-Level modules and low level modules should be loosely coupled or de-coupled.both class shouldn't depend on each other.The main motive of this principle is decoupling the dependencies so if class A changes the class B doesn’t need to care or know about the changes.
+According this principle High-Level modules and low level modules should be loosely coupled or de-coupled.both class shouldn't depend on each other. The main idea of this principle is decoupling the dependencies. So if class A changes the class B doesn’t need to care or know about the changes.
 
 
 ```java
@@ -379,7 +381,7 @@ class PasswordReminder
    ```
 
 
-Here the class Passwordreminder is a High-level module because it depends on the low level module- MySQLConnection.Here PasswordReminder class is coupled to MySQl connection for proper functioning.
+Here the class Passwordreminder is a High-level module because it depends on the low level module- MySQLConnection. Here PasswordReminder class is coupled to MySQl connection for proper functioning.
 This violates  Dependency Inversion Principle (DIP).
 
 
@@ -398,7 +400,7 @@ interface DBConnectionInterface
 
 
  
- Let us create an interface named **DBConnectionInterface** with a connect() method.MySQLConnection class implements this interface.now we can avoid using MySQLConnection directly in the class **PasswordReminder**,we can use DBConnectionInterface instead. So this code establishes that both high-level module and low level module depends on abstractions and they do not depend on each other.
+ Let us create an interface named **DBConnectionInterface** with a connect() method. MySQLConnection class implements this interface.now we can avoid using MySQLConnection directly in the class **PasswordReminder**,we can use DBConnectionInterface instead. So this code establishes that both high-level module and low level module depends on abstractions and they do not depend on each other.
 
 
 ```JAVA
@@ -428,6 +430,28 @@ class PasswordReminder
  ## 3. CONCLUSION
  
  This report makes clear that implementation of SOLID principles are great choice for good software design. Projects adhering to solid principles can be easily extended, tested and maintained,it can be made to effortlessly adapt to changing requirements. Main goal of SOLID type design is  de-coupling the classes and methods so that inter dependency is significantly reduced. To do so we might have to write lengthier code, but once its deployed after production,  it saves lot of time and effort during maintenances and extension. 
+
+
+
+ ### Reference
+
+* https://www.educative.io/edpresso/what-are-the-solid-principles-in-java
+* https://www.edureka.co/blog/solid-principles-in-java/
+* https://blog.logrocket.com/
+* https://solid-principles-single-responsibility-in-javascript-frameworks/
+* https://levelup.gitconnected.com/javascript-clean-code-solid-9d135f824180
+* https://thefullstack.xyz/solid-javascript
+* https://khalilstemmler.com/articles/solid-principles/solid-typescript/
+* https://stackoverflow.com/questions/56860/what-is-an-example-of-the-liskov-substitution-principle
+* https://reflectoring.io/lsp-explained/
+* https://blog.ndepend.com/solid-design-the-liskov-substitution-principle/
+* https://springframework.guru/principles-of-object-oriented-design/dependency-inversion-principle/
+* https://medium.com/@kedren.villena/simplifying-dependency-inversion-principle-dip-59228122649a
+* https://www.youtube.com/watch?v=mzvcONnKqmE
+* https://www.c-sharpcorner.com/UploadFile/pranayamr/open-close-principle/
+* https://dotnettutorials.net/lesson/dependency-inversion-principle/
+* https://www.toptal.com/software/single-responsibility-principl
+ 
 
 
 
